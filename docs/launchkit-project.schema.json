@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "apk": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "icon": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "package_name": {
+      "type": "string"
+    },
+    "schema_version": {
+      "const": 1
+    },
+    "screenshots": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "caption": {
+            "maxLength": 180,
+            "type": "string"
+          },
+          "file": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "file"
+        ],
+        "type": "object"
+      },
+      "maxItems": 20,
+      "type": "array"
+    },
+    "tagline": {
+      "maxLength": 140,
+      "type": "string"
+    },
+    "template": {
+      "enum": [
+        "aurora",
+        "paper",
+        "midnight"
+      ]
+    },
+    "title": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    },
+    "version": {
+      "maxLength": 64,
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "title"
+  ],
+  "title": "Indic LaunchKit project",
+  "type": "object"
+}

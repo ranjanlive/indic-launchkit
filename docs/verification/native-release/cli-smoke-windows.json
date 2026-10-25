@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": [
+    "Binary Android manifest metadata and SHA-256",
+    "Portable project init/import/validate",
+    "Dry-run lists complete pack without writes",
+    "Exported artwork, copied APK, metadata and all receipt hashes",
+    "Existing export refused",
+    "Headless rendered preview",
+    "JSON envelopes and error exit codes"
+  ]
+}

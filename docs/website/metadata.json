@@ -4,48 +4,220 @@
   "slug": "indic-launchkit",
   "type": "tools",
   "title": "Indic LaunchKit",
-  "tagline": "A new idea, taking shape.",
-  "short_description": "Draft product description. Replace with the actual purpose and intended users.",
+  "tagline": "From app to launch. Beautifully prepared.",
+  "short_description": "An open-source, offline studio for Android release artwork, APK inspection, and checksummed release packs—with a standalone CLI for AI agents.",
   "full_description": [
-    "Describe the implemented product and its real capabilities before publishing."
+    "Turn your real app icon and screenshots into a consistent release presentation. Indic LaunchKit combines a native desktop studio with a separate command-line tool, both powered by the same Rust engine.",
+    "Create a portable project, import local assets, edit captions, choose Aurora, Paper, or Midnight, and preview the actual rendered result. Export a 512px icon, 1024 × 500 feature graphic, 1200 × 630 social card, and 1080 × 1920 screenshot artwork without an account or a cloud service.",
+    "Optionally inspect an APK to read its literal package, version, SDK requirements, size, and SHA-256. Exported packs include product metadata, a review checklist, and checksums. Copying the APK into a pack is optional.",
+    "The separate launchkit CLI supports explicit arguments, versioned JSON responses, validation, headless previews, and dry-run export planning. It is suitable for repeatable scripts and AI-agent workflows without opening a desktop window.",
+    "This is an unsigned public beta. Native build and CLI test evidence is supplied for each released platform; interactive desktop integration was checked on Windows. APK signatures, store acceptance, legal documents, code signing, and automatic publishing are outside this release."
   ],
-  "status": "draft",
-  "category": "Utilities",
+  "status": "beta",
+  "category": "Developer Tools",
+  "tags": [
+    "Open source",
+    "Offline",
+    "Release artwork",
+    "APK inspector",
+    "CLI",
+    "AI agents"
+  ],
+  "accent": "#6653D5",
+  "tint": "#EFEBFC",
+  "icon_url": "assets/website/icon.webp",
+  "version": "0.1.0-beta.1",
   "platforms": [
     {
       "os": "windows",
-      "requirements": "Add actual tested OS and hardware requirements.",
-      "architectures": [],
-      "downloads": []
+      "requirements": "Windows 10/11 x64. Desktop requires Edge WebView2. The separate CLI archive needs Microsoft Visual C++ v14 x64 runtime, but no WebView. Unsigned beta.",
+      "architectures": [
+        "x64"
+      ],
+      "version": "0.1.0-beta.1",
+      "downloads": [
+        {
+          "label": "Download Windows installer",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/Indic.LaunchKit_0.1.0-beta.1_x64-setup.exe",
+          "size": "3.74 MiB",
+          "sha256": "6a0fddaa7cfd21ba89c73bc00b44dac8e7a99c1ae02c3e75681d761b61d2da3e",
+          "architecture": "x64",
+          "format": "exe"
+        },
+        {
+          "label": "Download Windows CLI",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/launchkit-0.1.0-beta.1-windows-x64.zip",
+          "size": "2.59 MiB",
+          "sha256": "b5fa512cc5782208199f32b0ee94148750af8bde47fb8f419da00269507a6fa2",
+          "architecture": "x64",
+          "format": "zip"
+        }
+      ]
     },
     {
       "os": "linux",
-      "requirements": "Add actual tested OS and hardware requirements.",
-      "architectures": [],
-      "downloads": []
+      "requirements": "x64 desktop with WebKitGTK 4.1. Built on Ubuntu 22.04; native desktop packages and a separate CLI archive. Graphical session required only for the desktop app.",
+      "architectures": [
+        "x64"
+      ],
+      "version": "0.1.0-beta.1",
+      "downloads": [
+        {
+          "label": "Download AppImage",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/Indic.LaunchKit_0.1.0-beta.1_amd64.AppImage",
+          "size": "79.57 MiB",
+          "sha256": "b687c0ea8709ffc521f84362dc282525afe330f47210ee10d3cf0977766fcee7",
+          "architecture": "x64",
+          "format": "AppImage"
+        },
+        {
+          "label": "Download Debian package",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/Indic.LaunchKit_0.1.0-beta.1_amd64.deb",
+          "size": "4.87 MiB",
+          "sha256": "e85d8d9fcc86c1ce84b4a1ad55a0f86d3794a709c50ab164fa4c6ea391711bf9",
+          "architecture": "x64",
+          "format": "deb"
+        },
+        {
+          "label": "Download Linux CLI",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/launchkit-0.1.0-beta.1-linux-x64.tar.gz",
+          "size": "2.64 MiB",
+          "sha256": "e114aaec348cb3fb898791d8c875c0259c42dd70f329a31af9c8b0b2d79b78f3",
+          "architecture": "x64",
+          "format": "tar.gz"
+        }
+      ]
     },
     {
       "os": "macos",
-      "requirements": "Add actual tested OS and hardware requirements.",
-      "architectures": [],
-      "downloads": []
+      "requirements": "Apple Silicon, macOS 12+ desktop target. No Developer ID signing or notarization. Native builds and CLI checks run on macOS 15; interactive macOS GUI testing is not claimed.",
+      "architectures": [
+        "arm64"
+      ],
+      "version": "0.1.0-beta.1",
+      "downloads": [
+        {
+          "label": "Download macOS app (Apple Silicon)",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/Indic.LaunchKit_0.1.0-beta.1_aarch64.dmg",
+          "size": "4.66 MiB",
+          "sha256": "16e78ba2d259089c5fd5857644849c15824acc23d7d9327b6a608b85903d5756",
+          "architecture": "arm64",
+          "format": "dmg"
+        },
+        {
+          "label": "Download macOS CLI",
+          "url": "https://github.com/ranjanlive/indic-launchkit/releases/download/v0.1.0-beta.1/launchkit-0.1.0-beta.1-macos-arm64.tar.gz",
+          "size": "2.46 MiB",
+          "sha256": "0e93296c47e6e29519f209d7135bf73c393291306fafbd8128f89831acd8cc38",
+          "architecture": "arm64",
+          "format": "tar.gz"
+        }
+      ]
     }
   ],
-  "icon_url": "/assets/brand/icon-512.png",
+  "source_code_url": "https://github.com/ranjanlive/indic-launchkit",
+  "website_url": "https://github.com/ranjanlive/indic-launchkit/releases",
+  "support_email": "support@indicstudio.com",
+  "price": {
+    "amount": 0,
+    "currency": "INR",
+    "label": "Free · MIT open source"
+  },
   "features": [
     {
-      "title": "Implemented benefit",
-      "description": "Replace this with a real implemented feature."
+      "title": "One engine, desktop and CLI",
+      "description": "A native project studio and standalone launchkit console tool use the same validated Rust workflows."
+    },
+    {
+      "title": "Three curated visual themes",
+      "description": "Style real app screenshots with Aurora, Paper, or Midnight, concise captions, and uncropped screenshot fitting."
+    },
+    {
+      "title": "Useful APK inspection",
+      "description": "Read literal binary manifest package/version/SDK metadata, file size, and SHA-256 without an Android SDK. Signature verification is not included."
+    },
+    {
+      "title": "A complete artwork handoff",
+      "description": "Export a 512px icon, feature graphic, social card, portrait screenshot set, product metadata, review checklist, and file checksums."
+    },
+    {
+      "title": "Predictable agent automation",
+      "description": "Use --json, explicit paths, noninteractive commands, schema inspection, and --dry-run with meaningful failure codes."
+    },
+    {
+      "title": "Local files, clear control",
+      "description": "Work without accounts or uploads. Project assets are copied locally, and existing export directories are refused."
     }
   ],
   "screenshots_url": {
     "android_view": [],
     "tablet_view": [],
-    "desktop_view": []
+    "desktop_view": [
+      {
+        "url": "assets/website/studio.webp",
+        "alt": "Indic LaunchKit desktop studio view",
+        "caption": "Create release artwork with your real app screenshots.",
+        "width": 1580,
+        "height": 1329
+      },
+      {
+        "url": "assets/website/export.webp",
+        "alt": "Indic LaunchKit desktop export view",
+        "caption": "Export a structured release pack with measured file hashes.",
+        "width": 1580,
+        "height": 1190
+      },
+      {
+        "url": "assets/website/agents.webp",
+        "alt": "Indic LaunchKit desktop agents view",
+        "caption": "Use the same engine from the standalone launchkit CLI.",
+        "width": 1580,
+        "height": 1064
+      }
+    ]
   },
-  "change_logs": [],
-  "updated": "2026-10-25",
+  "change_logs": [
+    {
+      "version": "0.1.0-beta.1",
+      "date": "2026-10-26",
+      "title": "First open-source beta",
+      "changes": [
+        "Desktop project studio with real asset import and rendered previews.",
+        "Standalone agent-friendly CLI and bounded APK metadata parser.",
+        "Three themes, checksummed release packs, and opt-in APK copying.",
+        "Native platform build receipts and CLI smoke evidence; unsigned beta."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "question": "Can an AI agent use LaunchKit without a desktop?",
+      "answer": "Yes. Download the separate CLI archive and use launchkit with --json. It supports project creation, asset import, APK inspection, validation, preview, schema inspection, and dry-run exports. It never uploads or publishes anything."
+    },
+    {
+      "question": "Does it sign APKs or publish to stores?",
+      "answer": "No. It prepares artwork, metadata, checksums and a checklist. Signing, complete store listings, privacy policy review and publication remain separate steps."
+    },
+    {
+      "question": "Does LaunchKit upload my files?",
+      "answer": "The application has no account, analytics or upload service. Selected files are copied to the project folder and processed locally. You choose where exports go."
+    },
+    {
+      "question": "Can I use and modify it commercially?",
+      "answer": "The project source is MIT licensed. Bundled fonts retain SIL OFL 1.1 and dependencies retain their licenses. The IndicStudio name does not imply endorsement of modified distributions."
+    },
+    {
+      "question": "Which languages and images are supported?",
+      "answer": "PNG, JPEG and WebP images are supported within documented size limits. Bundled fonts cover Latin and Devanagari; unsupported characters and text that exceeds template limits produce explicit errors."
+    }
+  ],
+  "privacy_summary": "Local processing with no application accounts, analytics, or uploads. You control project files, imported copies and exports.",
+  "release_note": "Unsigned beta: Windows Authenticode and Apple Developer ID/notarization are not configured. Check the release receipts and SHA-256 values. Desktop integration was checked on Windows; Linux/macOS native builds and CLI checks do not establish interactive GUI usability.",
+  "updated": "2026-10-26",
   "seo": {
-    "noindex": true
-  }
+    "title": "Indic LaunchKit — Offline Release Artwork & Agent-Friendly CLI",
+    "description": "Create Android screenshot artwork, inspect APKs, and export checksummed release packs. Free MIT open-source desktop tool and CLI for Windows, Linux and macOS.",
+    "noindex": false
+  },
+  "social_image_url": "assets/website/social-card.png"
 }

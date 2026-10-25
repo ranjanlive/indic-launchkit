@@ -7,7 +7,7 @@ from contextlib import contextmanager
 from jsonschema import Draft202012Validator,FormatChecker
 
 DEFAULT=Path(__file__).resolve().parent.parent
-SKIP_DIRS={'.git','.gradle','.kotlin','.idea','build','.cxx','.externalNativeBuild','__pycache__','node_modules','target','dist','gen'}
+SKIP_DIRS={'.git','.gradle','.kotlin','.idea','build','.cxx','.externalNativeBuild','__pycache__','node_modules','target','dist'}
 ROOT_FILES={'project.json','README.md','AGENTS.md','CHANGELOG.md','SECURITY.md','NOTICE.md','LICENSE','CONTRIBUTING.md','THIRD_PARTY_NOTICES.md','.gitignore','.gitattributes'}
 PUBLIC_DIRS={'source_code','assets','docs','scripts','.github','release'}
 PRIVATE_SUFFIX={'.jks','.keystore','.p12','.pfx','.pem','.key','.p8'}
@@ -32,11 +32,12 @@ def schema(root,data,name):
 def private_reason(relative):
     parts=relative.parts;name=relative.name.lower();suffix=relative.suffix.lower()
     if any(p in SKIP_DIRS for p in parts):return 'generated state or Git internals'
+    if parts[:3]==('source_code','src-tauri','gen'):return 'generated Tauri schemas'
     if len(parts)>1 and parts[:2]==('release','private'):return 'private release material'
     if len(parts)>1 and parts[:2]==('docs','archive'):return 'local historical documents'
     if parts and parts[0]=='release' and 'builds' in parts:return 'binary release material'
     if suffix in PRIVATE_SUFFIX:return 'private key or keystore'
-    if suffix in {'.apk','.aab','.exe','.msi','.dmg','.pkg'}:return 'binary build'
+    if suffix in {'.apk','.aab','.exe','.msi','.dmg','.pkg','.deb','.rpm','.appimage'}:return 'binary build'
     if name in {'local.properties','signing.properties','keystore.properties','secrets.properties','credentials.json','.scaffold.json'}:return 'machine or secret configuration'
     if name.startswith(('.env','service-account','service_account','client_secret')) and not name.endswith('.example'):return 'secret configuration'
     if suffix in {'.log','.pyc','.iml'} or ('docs','verification')==parts[:2] and name.startswith('local-'):return 'local verification output'
@@ -55,7 +56,7 @@ def public_files(root):
     return sorted(result)
 def scan(root,files):
     findings=[]
-    text_suffix={'.kt','.kts','.java','.xml','.json','.properties','.toml','.md','.txt','.yml','.yaml','.py','.ps1','.js','.ts','.rs','.html','.css','.svg','.sh','.bat'}
+    text_suffix={'.kt','.kts','.java','.xml','.json','.properties','.toml','.md','.txt','.yml','.yaml','.py','.ps1','.js','.mjs','.cjs','.ts','.rs','.html','.css','.svg','.sh','.bat'}
     for p in files:
         if p.suffix.lower() not in text_suffix or p.stat().st_size>2*1024*1024:continue
         try:text=p.read_text(encoding='utf-8-sig')

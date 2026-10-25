@@ -9,3 +9,5 @@
 - Local temporary filesystem tests required host execution because the sandbox denied temporary-file publication. Host tests passed; the sandbox error was not suppressed or counted as a product success.
 
 No Authenticode or Apple notarization credentials were supplied. No application store submission, APK installation, signature verification or signing was performed by this tool.
+
+The final packaged Windows executable additionally loaded without a development server, loaded its bundled Noto font, navigated its three pages, and parsed the local APK fixture through real production IPC. See packaged-windows-smoke.json. Both development and production windows and their tracked helpers were reclaimed; see resource-cleanup.json.

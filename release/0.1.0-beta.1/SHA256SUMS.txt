@@ -1,0 +1,12 @@
+b687c0ea8709ffc521f84362dc282525afe330f47210ee10d3cf0977766fcee7  builds/linux/Indic-LaunchKit_0.1.0-beta.1_amd64.AppImage
+e85d8d9fcc86c1ce84b4a1ad55a0f86d3794a709c50ab164fa4c6ea391711bf9  builds/linux/Indic-LaunchKit_0.1.0-beta.1_amd64.deb
+e114aaec348cb3fb898791d8c875c0259c42dd70f329a31af9c8b0b2d79b78f3  builds/linux/launchkit-0.1.0-beta.1-linux-x64.tar.gz
+16e78ba2d259089c5fd5857644849c15824acc23d7d9327b6a608b85903d5756  builds/macos/Indic-LaunchKit_0.1.0-beta.1_aarch64.dmg
+0e93296c47e6e29519f209d7135bf73c393291306fafbd8128f89831acd8cc38  builds/macos/launchkit-0.1.0-beta.1-macos-arm64.tar.gz
+6a0fddaa7cfd21ba89c73bc00b44dac8e7a99c1ae02c3e75681d761b61d2da3e  builds/windows/Indic-LaunchKit_0.1.0-beta.1_x64-setup.exe
+b5fa512cc5782208199f32b0ee94148750af8bde47fb8f419da00269507a6fa2  builds/windows/launchkit-0.1.0-beta.1-windows-x64.zip
+dcb9add46faf28a70b3d42eca3c0d257cf4951056f6c2639704b7ccb08651f39  metadata.json
+869addb5304a335eee0dfcd3f0098dbe4a3b268aec9b622ef92421a9e6ff9be7  privacy_content.json
+7c86564b7f42c99e108d5c045336c9d3c35531ba482af8ab5bfe16321fedc3f6  release.json
+1ba64b50a42b4c24fbd100b3517e6456b8f5782f33ac1b0a66925e86f091f1f4  source-manifest.json
+aa01d2ff8057dde94287723d912ac877fb891ffe4d9c82c16ed8f91455ba16c6  store-listing.json

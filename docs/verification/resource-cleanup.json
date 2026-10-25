@@ -1,0 +1,10 @@
+{
+  "owned_production_processes_tracked": 7,
+  "owned_development_processes_tracked": 11,
+  "checked_utc": "2026-10-25T18:50:09.9221854Z",
+  "owned_development_leftovers": [],
+  "policy": "PID plus creation-time identities only; no shared Java, adb, IDE, system cache or unrelated process changed",
+  "owned_production_leftovers": [],
+  "test_ports_still_listening": [],
+  "preserved": "Build/download caches, sources, screenshots and release artifacts"
+}

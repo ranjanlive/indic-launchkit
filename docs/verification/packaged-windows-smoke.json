@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": [
+    "Packaged HTML and JavaScript loaded without a development server",
+    "Bundled Noto UI font loaded",
+    "Project, export and CLI navigation work",
+    "Real packaged Rust IPC parses a local APK fixture"
+  ],
+  "origin": "http://tauri.localhost/",
+  "limitations": "Native file picker and installer installation were not automated; no Linux/macOS interactive GUI claim."
+}

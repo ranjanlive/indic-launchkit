@@ -4,6 +4,8 @@ An offline studio for Android release artwork, APK metadata inspection, and chec
 
 **Pre-release software.** Native builds and verification are recorded in [docs/verification](docs/verification). Unsigned installers are not represented as production-signed software. APK inspection does not verify signatures or certify store acceptance.
 
+![Indic LaunchKit project studio with a real Indic Tasks screenshot](assets/screenshots/desktop/studio.png)
+
 ## What it does
 
 - Import your actual icon, screenshots, and an optional APK into a portable project folder.

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "archive": "launchkit-0.1.0-beta.1-windows-x64.zip",
+  "archive_bytes": 2712796,
+  "archive_sha256": "b5fa512cc5782208199f32b0ee94148750af8bde47fb8f419da00269507a6fa2",
+  "bundled_dependency_licenses": true,
+  "downloaded_cli_templates_command": true,
+  "windows_import_dlls": [
+    "bcryptprimitives.dll",
+    "kernel32.dll",
+    "ntdll.dll",
+    "api-ms-win-core-synch-l1-2-0.dll",
+    "KERNEL32.dll",
+    "VCRUNTIME140.dll",
+    "api-ms-win-crt-string-l1-1-0.dll",
+    "api-ms-win-crt-math-l1-1-0.dll",
+    "api-ms-win-crt-runtime-l1-1-0.dll",
+    "api-ms-win-crt-stdio-l1-1-0.dll",
+    "api-ms-win-crt-locale-l1-1-0.dll",
+    "api-ms-win-crt-heap-l1-1-0.dll"
+  ]
+}

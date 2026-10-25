@@ -1,0 +1,74 @@
+{
+  "$schema": "../../docs/schemas/release.schema.json",
+  "schema_version": 1,
+  "release_id": "0.1.0-beta.1",
+  "product": "indic-launchkit",
+  "channel": "beta",
+  "version_name": "0.1.0",
+  "version_code": null,
+  "package_name": null,
+  "created": "2026-10-25T19:19:25.033109+00:00",
+  "source": {
+    "tree_sha256": "d31c1f1f923a73c7ff755739e5cd81ba06fc2d9366890c6f4e0e3e9bc959ee78",
+    "git_commit": "0f2f65b7fb6e243d60f785bc2729ccb37d88d97b",
+    "manifest": "source-manifest.json"
+  },
+  "artifacts": [
+    {
+      "file": "builds/windows/Indic-LaunchKit_0.1.0-beta.1_x64-setup.exe",
+      "kind": "installer",
+      "bytes": 3925045,
+      "sha256": "6a0fddaa7cfd21ba89c73bc00b44dac8e7a99c1ae02c3e75681d761b61d2da3e",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/windows/launchkit-0.1.0-beta.1-windows-x64.zip",
+      "kind": "archive",
+      "bytes": 2712796,
+      "sha256": "b5fa512cc5782208199f32b0ee94148750af8bde47fb8f419da00269507a6fa2",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/linux/Indic-LaunchKit_0.1.0-beta.1_amd64.AppImage",
+      "kind": "installer",
+      "bytes": 83433976,
+      "sha256": "b687c0ea8709ffc521f84362dc282525afe330f47210ee10d3cf0977766fcee7",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/linux/Indic-LaunchKit_0.1.0-beta.1_amd64.deb",
+      "kind": "installer",
+      "bytes": 5107510,
+      "sha256": "e85d8d9fcc86c1ce84b4a1ad55a0f86d3794a709c50ab164fa4c6ea391711bf9",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/linux/launchkit-0.1.0-beta.1-linux-x64.tar.gz",
+      "kind": "archive",
+      "bytes": 2768416,
+      "sha256": "e114aaec348cb3fb898791d8c875c0259c42dd70f329a31af9c8b0b2d79b78f3",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/macos/Indic-LaunchKit_0.1.0-beta.1_aarch64.dmg",
+      "kind": "installer",
+      "bytes": 4891151,
+      "sha256": "16e78ba2d259089c5fd5857644849c15824acc23d7d9327b6a608b85903d5756",
+      "signing_status": "not-verified"
+    },
+    {
+      "file": "builds/macos/launchkit-0.1.0-beta.1-macos-arm64.tar.gz",
+      "kind": "archive",
+      "bytes": 2583587,
+      "sha256": "0e93296c47e6e29519f209d7135bf73c393291306fafbd8128f89831acd8cc38",
+      "signing_status": "not-verified"
+    }
+  ],
+  "metadata": "metadata.json",
+  "privacy_content": "privacy_content.json",
+  "published": false,
+  "notes": [
+    "Local staged build; not a public store release. Debug APK certificates have not been verified by this staging command.",
+    "Verified GitHub prerelease: https://github.com/ranjanlive/indic-launchkit/releases/tag/v0.1.0-beta.1 ; native workflow 40222450552 passed for Windows x64, Linux x64 and macOS arm64. The local staging published=false flag does not certify store/production publication; actual public prerelease evidence is docs/verification/published-release.json. No original release binary was overwritten."
+  ]
+}

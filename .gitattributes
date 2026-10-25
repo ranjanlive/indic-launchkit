@@ -5,3 +5,5 @@ source_code/gradlew text eol=lf
 *.jar binary
 *.png binary
 *.webp binary
+# Frozen release records must keep the exact bytes used in SHA256SUMS.txt.
+release/** -text

@@ -1,5 +1,7 @@
 # IndicStudio development guide
 
+**LaunchKit-specific entry point:** this is a Rust/Tauri desktop project with a separate Rust CLI. Use README.md, docs/BUILD_AND_RELEASE.md and docs/CLI.md for actual commands. The company-wide Android build/emulator examples below do not apply to LaunchKit. Its approved public repository is https://github.com/ranjanlive/indic-launchkit; company identity remains IndicStudio.
+
 This guide accompanies PRODUCT_STANDARD.md. In a product repository commands run from the **product root**. In the central workspace substitute `development/tools/project.py --project <product-path>` for `scripts/project.py`.
 
 ## First use

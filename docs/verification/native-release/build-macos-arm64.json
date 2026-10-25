@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0-beta.1",
+  "platform": "macos",
+  "architecture": "arm64",
+  "system": "macOS-15.7.9-arm64-arm-64bit-Mach-O",
+  "commit": "0f2f65b7fb6e243d60f785bc2729ccb37d88d97b",
+  "cli_archive": "launchkit-0.1.0-beta.1-macos-arm64.tar.gz",
+  "desktop_bundles": [
+    "Indic LaunchKit_0.1.0-beta.1_aarch64.dmg"
+  ],
+  "signing": "unsigned; no Authenticode or Apple notarization",
+  "verification": "Core tests, CLI end-to-end smoke, frontend compilation, native build; GUI manual verification is recorded separately"
+}

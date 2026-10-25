@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0-beta.1",
+  "platform": "windows",
+  "architecture": "x64",
+  "system": "Windows-2025Server-10.0.26100-SP0",
+  "commit": "0f2f65b7fb6e243d60f785bc2729ccb37d88d97b",
+  "cli_archive": "launchkit-0.1.0-beta.1-windows-x64.zip",
+  "desktop_bundles": [
+    "Indic LaunchKit_0.1.0-beta.1_x64-setup.exe"
+  ],
+  "signing": "unsigned; no Authenticode or Apple notarization",
+  "verification": "Core tests, CLI end-to-end smoke, frontend compilation, native build; GUI manual verification is recorded separately"
+}

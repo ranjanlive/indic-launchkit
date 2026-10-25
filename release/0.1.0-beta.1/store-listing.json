@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "title": "Indic LaunchKit",
+  "developer": "IndicStudio",
+  "version": "0.1.0-beta.1",
+  "tagline": "From app to launch. Beautifully prepared.",
+  "distribution": "GitHub prerelease and IndicStudio product page",
+  "license": "MIT; third-party licenses retained",
+  "platforms": [
+    "Windows x64",
+    "Linux x64",
+    "macOS Apple Silicon"
+  ],
+  "short_description": "Offline release artwork, APK metadata inspection and checksummed export packs, with a native desktop studio and separate agent-friendly CLI.",
+  "features": [
+    "Three screenshot artwork themes",
+    "Local portable projects and validated imports",
+    "Bounded literal APK manifest inspection",
+    "Icon, feature graphic, social card and portrait screenshot exports",
+    "Metadata, checklist and SHA-256 release pack",
+    "JSON CLI, schema, validation and dry-run"
+  ],
+  "store_submission_status": "not_submitted",
+  "signing": "No Authenticode or Apple Developer ID/notarization configured",
+  "privacy_url": "https://indicstudio.com/tools/indic-launchkit/privacy/",
+  "source_code_url": "https://github.com/ranjanlive/indic-launchkit"
+}

@@ -108,6 +108,9 @@ jobs:
               platform=directory.name.removeprefix('native-')
               for file in directory.iterdir():
                   name=f'{platform}-{file.name}' if file.name in {'cli-smoke.json','DEPENDENCY-LICENSES.md'} else file.name
+                  # GitHub normalizes spaces in uploaded asset names to dots.
+                  # Normalize before hashing so downloaded filenames match checksums.
+                  name=name.replace(' ','.')
                   destination=out/name
                   if destination.exists():raise RuntimeError('Duplicate artifact name: '+name)
                   shutil.copy2(file,destination)

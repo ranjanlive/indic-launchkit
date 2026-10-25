@@ -1,15 +1,65 @@
 {
   "$schema": "../schemas/privacy.schema.json",
   "schema_version": 1,
-  "title": "Privacy policy for Indic LaunchKit",
-  "effective_date": "2026-10-25",
-  "summary": "Draft privacy notice. Replace it with verified product-specific information.",
+  "title": "Privacy notice for Indic LaunchKit",
+  "effective_date": "2026-10-26",
+  "summary": "Indic LaunchKit processes selected files on your device. It has no application account, analytics, upload service or cloud storage.",
   "sections": [
     {
-      "id": "data",
-      "title": "Information and permissions",
+      "id": "files",
+      "title": "Files you choose",
       "paragraphs": [
-        "Document actual collection, processing, permissions, sharing, third-party services, backups, retention and deletion before publication."
+        "The app or CLI reads the project folder, images and optional APK that you select or name in a command. Imported assets are copied into the selected project directory. Product titles, captions, package/version fields and relative asset paths are saved in launchkit.json. APK inspection reads the binary manifest and computes a local file checksum."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "outputs",
+      "title": "Projects, previews and exports",
+      "paragraphs": [
+        "Previews are rendered in memory. Exports write artwork, product metadata, a review checklist and file checksums to the new folder you choose. An APK is copied into an export only when you explicitly enable that option. Temporary staging files are used during imports, saves and exports; normal completion removes their temporary locations. A crash may leave temporary files or an export reservation lock that you can review locally."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "network",
+      "title": "Network and third parties",
+      "paragraphs": [
+        "LaunchKit does not implement analytics, account login, advertising, remote fonts, telemetry, file uploads or application update checks. The desktop interface uses the operating system WebView. The OS, WebView runtime, antivirus and package manager have their own behavior and policies, independent of LaunchKit.",
+        "The IndicStudio website, GitHub repository and release-download service are separate services. Visiting them or downloading builds is governed by their respective policies; their hosting logs are not collected by the LaunchKit application."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "retention",
+      "title": "Storage, retention and deletion",
+      "paragraphs": [
+        "You control the project and export folders. LaunchKit has no server-side copies to retain or erase. Remove local folders with your operating system to delete those copies, and consider any backups or synchronization services you use. Removing a screenshot entry from a project does not delete the imported asset file or the original source.",
+        "The WebView may maintain its normal local runtime/cache data under the operating-system application-data location. The app does not intentionally place project images in a cloud service. Do not import confidential files into a project or export directory that you later publish."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "access",
+      "title": "Access and permissions",
+      "paragraphs": [
+        "The desktop application uses native file dialogs and filesystem access for selected projects/assets/exports. The CLI accesses paths supplied through arguments. No camera, microphone, contacts or location permission is requested by the application. Source builds and automated development tests are separate from the distributed application."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "scope",
+      "title": "Scope and updates",
+      "paragraphs": [
+        "This notice describes the first public beta. Future changes that introduce data collection or network features require an updated notice. Exported product metadata is not a privacy policy for the app represented by your screenshots; review that product separately."
+      ],
+      "bullets": []
+    },
+    {
+      "id": "contact",
+      "title": "Contact",
+      "paragraphs": [
+        "For product or privacy questions, contact support@indicstudio.com. Do not include private APKs, personal screenshots, tokens or credentials in public GitHub issues."
       ],
       "bullets": []
     }

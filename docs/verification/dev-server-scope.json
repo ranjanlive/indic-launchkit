@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": {
+    "bundled_font_allowed": 200,
+    "private_release_folder_denied": 403
+  },
+  "scope": "Development server allows source_code and assets/fonts only; packaged app requires no server.",
+  "owned_server_exited": true
+}

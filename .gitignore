@@ -50,3 +50,8 @@ dist/
 source_code/src-tauri/gen/
 local-work/
 **/my-launchkit-project/
+
+# Native Linux installer bundles belong in release/builds or GitHub Releases.
+*.deb
+*.rpm
+*.AppImage

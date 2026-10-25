@@ -25,8 +25,8 @@
     "website_metadata": "docs/website/metadata.json",
     "privacy_content": "docs/website/privacy_content.json"
   },
-  "lifecycle": "draft",
-  "current_release": null,
+  "lifecycle": "beta",
+  "current_release": "0.1.0-beta.1",
   "origin": null,
   "created": "2026-10-25"
 }

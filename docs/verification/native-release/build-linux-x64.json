@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "version": "0.1.0-beta.1",
+  "platform": "linux",
+  "architecture": "x64",
+  "system": "Linux-6.8.0-1064-azure-x86_64-with-glibc2.35",
+  "commit": "0f2f65b7fb6e243d60f785bc2729ccb37d88d97b",
+  "cli_archive": "launchkit-0.1.0-beta.1-linux-x64.tar.gz",
+  "desktop_bundles": [
+    "Indic LaunchKit_0.1.0-beta.1_amd64.deb",
+    "Indic LaunchKit_0.1.0-beta.1_amd64.AppImage"
+  ],
+  "signing": "unsigned; no Authenticode or Apple notarization",
+  "verification": "Core tests, CLI end-to-end smoke, frontend compilation, native build; GUI manual verification is recorded separately"
+}

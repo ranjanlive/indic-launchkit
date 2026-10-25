@@ -1,5 +1,7 @@
 # IndicStudio — new product mini checklist
 
+**This workspace is already created and implemented:** Indic LaunchKit is a Rust/Tauri desktop tool, not an Android Gradle project. Start with the repository README, BUILD_AND_RELEASE.md, CLI.md and AGENT_QUICK_START.md. Use native CI/release archives for Windows, Linux and macOS. The following checklist is the reusable company standard for new products; do not create a second LaunchKit workspace or run its Android examples here.
+
 **Idea → Requirements → Develop → Test → Release → CDN → Website → Publish**
 
 Start in `indicstudio/`. Keep one workspace/session per product.
