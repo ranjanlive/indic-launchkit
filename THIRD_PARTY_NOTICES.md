@@ -7,3 +7,5 @@ Bundled Noto Sans and Noto Sans Devanagari fonts are Copyright 2018 The Noto Pro
 The IndicStudio name and product identity identify this project. The MIT license does not grant trademark rights or imply endorsement of modified distributions.
 
 The application uses Rust, Tauri, Vite, resvg/usvg, image, clap, zip, serde, SHA-2, and their transitive dependencies. Their original copyright notices and licenses are available from the dependency sources identified by the lockfiles. No proprietary SDK, analytics service, or remote font is bundled.
+
+Native builds collect dependency license and notice texts into DEPENDENCY-LICENSES.md. The desktop bundle carries these under its licenses resources; CLI archives include them beside the executable. Platform-specific copies accompany the GitHub release assets.

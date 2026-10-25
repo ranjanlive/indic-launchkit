@@ -49,3 +49,4 @@ dist/
 **/dist/
 source_code/src-tauri/gen/
 local-work/
+**/my-launchkit-project/

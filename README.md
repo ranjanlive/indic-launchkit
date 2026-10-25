@@ -31,7 +31,7 @@ launchkit export --project my-app --output release-pack --json
 
 ## Build from source
 
-Requires a current stable Rust toolchain, Node.js 24+, and the [Tauri 2 platform prerequisites](https://v2.tauri.app/start/prerequisites/). Windows uses Microsoft Edge WebView2. Linux desktop builds require WebKitGTK 4.1. The CLI does not require a WebView or a graphical desktop.
+Requires a current stable Rust toolchain, Node.js 24+, Python 3.11+,, and the [Tauri 2 platform prerequisites](https://v2.tauri.app/start/prerequisites/). Windows uses Microsoft Edge WebView2. Linux desktop builds require WebKitGTK 4.1. The CLI does not require a WebView or a graphical desktop.
 
 ```sh
 cd source_code

@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "passed": true,
+  "checks": [
+    "Create project and save fields through real Rust IPC",
+    "Import actual local PNG assets and render preview",
+    "Edit captions and render all three themes",
+    "All four preview formats render",
+    "Desktop dry-run does not write output",
+    "Desktop export creates real artwork and checksums",
+    "Existing-output error is shown truthfully"
+  ],
+  "page_errors": [],
+  "method": "Real Windows Tauri WebView and Rust IPC through localhost CDP; only native file-dialog selections stubbed. No interactive Linux/macOS GUI claim."
+}

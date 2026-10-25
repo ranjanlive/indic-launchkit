@@ -1,6 +1,6 @@
 # Build and release
 
-Build CLI and GUI separately from source_code/. Rust and npm dependencies are locked. Use Node.js 24 and stable Rust with the Tauri 2 prerequisites. The source workspace limits compilation to two workers.
+Build CLI and GUI separately from source_code/. Rust and npm dependencies are locked. Use Node.js 24, Python 3.11+, and stable Rust with the Tauri 2 prerequisites. The source workspace limits compilation to two workers.
 
 Native CI runs sequentially on Windows x64, Ubuntu 22.04 x64, and macOS 15 Apple Silicon. Each runner tests the core and CLI, builds the frontend, creates its CLI archive, and builds native Tauri bundles. No macOS universal or Linux ARM binary is implied. A build is not a substitute for human usability testing on every OS.
 

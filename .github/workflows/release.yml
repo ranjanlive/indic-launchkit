@@ -43,6 +43,9 @@ jobs:
           node-version: '24'
           cache: npm
           cache-dependency-path: source_code/package-lock.json
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
       - name: Linux desktop prerequisites
         if: runner.os == 'Linux'
         run: |
@@ -71,6 +74,8 @@ jobs:
           subprocess.run([sys.executable,'../scripts/smoke_cli.py','--binary',binary,'--report','../local-work/native/cli-smoke.json'],check=True)
       - name: Native desktop bundles
         run: npm run tauri -- build --bundles ${{ matrix.bundles }}
+      - name: Collect dependency license notices
+        run: python ../scripts/dependency_notices.py
       - name: Package native outputs
         run: python ../scripts/package_native.py --platform ${{ matrix.platform }}
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
@@ -102,7 +107,7 @@ jobs:
           for directory in root.iterdir():
               platform=directory.name.removeprefix('native-')
               for file in directory.iterdir():
-                  name=f'cli-smoke-{platform}.json' if file.name=='cli-smoke.json' else file.name
+                  name=f'{platform}-{file.name}' if file.name in {'cli-smoke.json','DEPENDENCY-LICENSES.md'} else file.name
                   destination=out/name
                   if destination.exists():raise RuntimeError('Duplicate artifact name: '+name)
                   shutil.copy2(file,destination)

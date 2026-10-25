@@ -161,7 +161,9 @@ pub fn init(root: &Path, title: &str, package: &str, template: &str) -> Result<P
 pub fn import(root: &Path, source: &Path, kind: &str, caption: &str) -> Result<Project> {
     let mut project = load(root)?;
     if caption.chars().count() > 180 || caption.chars().any(|c| c.is_control() && c != '\n') {
-        return Err("Caption must contain at most 180 characters without control characters".into());
+        return Err(
+            "Caption must contain at most 180 characters without control characters".into(),
+        );
     }
     render::validate_text(caption)?;
     if source.is_symlink() || !source.is_file() {
@@ -208,16 +210,23 @@ pub fn import(root: &Path, source: &Path, kind: &str, caption: &str) -> Result<P
         return Err("Asset destination cannot be a symlink".into());
     }
     if !destination.exists() {
-        let mut target = fs::OpenOptions::new()
-            .write(true)
-            .create_new(true)
-            .open(&destination)
-            .map_err(|e| e.to_string())?;
-        std::io::copy(
-            &mut fs::File::open(source).map_err(|e| e.to_string())?,
-            &mut target,
+        let limit = if kind == "apk" { MAX_APK } else { MAX_FILE };
+        let mut staged =
+            tempfile::NamedTempFile::new_in(root.join("assets")).map_err(|e| e.to_string())?;
+        let copied = std::io::copy(
+            &mut fs::File::open(source)
+                .map_err(|e| e.to_string())?
+                .take(limit + 1),
+            &mut staged,
         )
         .map_err(|e| e.to_string())?;
+        if copied > limit || hash_file(staged.path())? != hash {
+            return Err("Source changed or exceeded its size limit during import".into());
+        }
+        staged.as_file().sync_all().map_err(|e| e.to_string())?;
+        staged
+            .persist_noclobber(&destination)
+            .map_err(|e| e.to_string())?;
     }
     if hash_file(&destination)? != hash {
         return Err("Imported file hash mismatch".into());

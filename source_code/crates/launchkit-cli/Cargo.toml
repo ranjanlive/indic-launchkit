@@ -12,4 +12,3 @@ path = "src/main.rs"
 launchkit-core = { path = "../launchkit-core" }
 clap = { version = "4", features = ["derive"] }
 serde_json = "1"
-

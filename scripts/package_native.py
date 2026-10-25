@@ -11,6 +11,7 @@ def main():
     shutil.copy2(binary,stage/binary.name)
     for file in ['LICENSE','THIRD_PARTY_NOTICES.md']:shutil.copy2(ROOT/file,stage/file)
     shutil.copy2(ROOT/'assets/fonts/OFL.txt',stage/'FONT-LICENSE.txt');shutil.copy2(ROOT/'docs/CLI.md',stage/'CLI.md')
+    shutil.copy2(out/'DEPENDENCY-LICENSES.md',stage/'DEPENDENCY-LICENSES.md')
     if args.platform=='windows':
         archive=out/f'{name}.zip'
         with zipfile.ZipFile(archive,'w',zipfile.ZIP_DEFLATED) as z:

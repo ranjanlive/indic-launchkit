@@ -1,6 +1,55 @@
 {
-  "$schema":"https://schema.tauri.app/config/2","productName":"Indic LaunchKit","version":"0.1.0-beta.1","identifier":"com.indicstudio.launchkit",
-  "build":{"beforeDevCommand":"npm run dev","devUrl":"http://localhost:1420","beforeBuildCommand":"npm run build","frontendDist":"../dist"},
-  "app":{"windows":[{"title":"Indic LaunchKit","width":1280,"height":840,"minWidth":940,"minHeight":680}],"security":{"csp":"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; frame-src 'none'"}},
-  "bundle":{"active":true,"targets":"all","shortDescription":"Offline release artwork and APK inspection","longDescription":"Prepare screenshot artwork, inspect APK metadata, and export checksummed release packs with an offline desktop app and companion CLI.","category":"DeveloperTool","copyright":"Copyright 2026 IndicStudio","icon":["icons/32x32.png","icons/128x128.png","icons/128x128@2x.png","icons/icon.icns","icons/icon.ico"],"windows":{"nsis":{"installMode":"currentUser"}},"macOS":{"minimumSystemVersion":"12.0"}}
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Indic LaunchKit",
+  "version": "0.1.0-beta.1",
+  "identifier": "com.indicstudio.launchkit",
+  "build": {
+    "beforeDevCommand": "python ../scripts/dependency_notices.py && npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build && python ../scripts/dependency_notices.py",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "title": "Indic LaunchKit",
+        "width": 1280,
+        "height": 840,
+        "minWidth": 940,
+        "minHeight": 680
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; connect-src ipc: http://ipc.localhost; object-src 'none'; base-uri 'none'; frame-src 'none'"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "shortDescription": "Offline release artwork and APK inspection",
+    "longDescription": "Prepare screenshot artwork, inspect APK metadata, and export checksummed release packs with an offline desktop app and companion CLI.",
+    "category": "DeveloperTool",
+    "copyright": "Copyright 2026 IndicStudio",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ],
+    "windows": {
+      "nsis": {
+        "installMode": "currentUser"
+      }
+    },
+    "macOS": {
+      "minimumSystemVersion": "12.0"
+    },
+    "resources": {
+      "../../LICENSE": "licenses/LICENSE",
+      "../../THIRD_PARTY_NOTICES.md": "licenses/THIRD_PARTY_NOTICES.md",
+      "../../assets/fonts/OFL.txt": "licenses/FONT-LICENSE.txt",
+      "../../local-work/native/DEPENDENCY-LICENSES.md": "licenses/DEPENDENCY-LICENSES.md"
+    }
+  }
 }

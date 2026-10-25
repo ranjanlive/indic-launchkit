@@ -10,7 +10,7 @@
     "owner": "ranjanlive",
     "name": "indic-launchkit",
     "planned_url": "https://github.com/ranjanlive/indic-launchkit",
-    "remote_verified": false
+    "remote_verified": true
   },
   "platforms": [
     "windows",
