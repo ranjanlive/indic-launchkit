@@ -1,0 +1,17 @@
+{
+  "$schema": "../schemas/privacy.schema.json",
+  "schema_version": 1,
+  "title": "Privacy policy for Indic LaunchKit",
+  "effective_date": "2026-10-25",
+  "summary": "Draft privacy notice. Replace it with verified product-specific information.",
+  "sections": [
+    {
+      "id": "data",
+      "title": "Information and permissions",
+      "paragraphs": [
+        "Document actual collection, processing, permissions, sharing, third-party services, backups, retention and deletion before publication."
+      ],
+      "bullets": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "docs/schemas/project.schema.json",
+  "schema_version": 1,
+  "slug": "indic-launchkit",
+  "title": "Indic LaunchKit",
+  "type": "tools",
+  "organization": "IndicStudio",
+  "package_name": null,
+  "repository": {
+    "owner": "ranjanlive",
+    "name": "indic-launchkit",
+    "planned_url": "https://github.com/ranjanlive/indic-launchkit",
+    "remote_verified": false
+  },
+  "platforms": [
+    "windows",
+    "linux",
+    "macos"
+  ],
+  "paths": {
+    "source_code": "source_code",
+    "assets": "assets",
+    "docs": "docs",
+    "release": "release",
+    "website_metadata": "docs/website/metadata.json",
+    "privacy_content": "docs/website/privacy_content.json"
+  },
+  "lifecycle": "draft",
+  "current_release": null,
+  "origin": null,
+  "created": "2026-10-25"
+}

@@ -1,0 +1,117 @@
+name: Native release
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing immutable release tag
+        required: true
+        default: v0.1.0-beta.1
+permissions:
+  contents: read
+concurrency:
+  group: launchkit-native-release
+  cancel-in-progress: false
+jobs:
+  native:
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        include:
+          - os: windows-2025
+            platform: windows
+            bundles: nsis
+          - os: ubuntu-22.04
+            platform: linux
+            bundles: deb,appimage
+          - os: macos-15
+            platform: macos
+            bundles: app,dmg
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 60
+    env:
+      CARGO_BUILD_JOBS: 2
+    defaults:
+      run:
+        working-directory: source_code
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.tag }}
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: source_code/package-lock.json
+      - name: Linux desktop prerequisites
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential curl wget file libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev patchelf
+      - name: Rust toolchain
+        run: |
+          rustup toolchain install stable --profile minimal
+          rustup default stable
+      - name: Check tag matches package version
+        shell: python
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          import json, os
+          version=json.load(open('package.json'))['version']
+          assert os.environ['RELEASE_TAG']=='v'+version, 'Tag and package version must match'
+      - run: npm ci --no-audit --no-fund
+      - run: cargo test -p launchkit-core -p launchkit-cli --locked
+      - run: cargo build -p launchkit-cli --release --locked
+      - name: CLI smoke test
+        shell: python
+        run: |
+          import os,subprocess,sys
+          binary='target/release/launchkit'+('.exe' if os.name=='nt' else '')
+          subprocess.run([sys.executable,'../scripts/smoke_cli.py','--binary',binary,'--report','../local-work/native/cli-smoke.json'],check=True)
+      - name: Native desktop bundles
+        run: npm run tauri -- build --bundles ${{ matrix.bundles }}
+      - name: Package native outputs
+        run: python ../scripts/package_native.py --platform ${{ matrix.platform }}
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: native-${{ matrix.platform }}
+          path: local-work/native/
+          if-no-files-found: error
+          retention-days: 14
+  publish:
+    needs: native
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ inputs.tag }}
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: native-*
+          path: release-assets
+          merge-multiple: false
+      - name: Consolidate measured checksums
+        shell: python
+        run: |
+          from pathlib import Path
+          import hashlib,json,shutil
+          root=Path('release-assets');out=Path('publish');out.mkdir()
+          for directory in root.iterdir():
+              platform=directory.name.removeprefix('native-')
+              for file in directory.iterdir():
+                  name=f'cli-smoke-{platform}.json' if file.name=='cli-smoke.json' else file.name
+                  destination=out/name
+                  if destination.exists():raise RuntimeError('Duplicate artifact name: '+name)
+                  shutil.copy2(file,destination)
+          receipts=[json.loads(p.read_text()) for p in out.glob('build-*.json')]
+          assert {r['platform'] for r in receipts}=={'windows','linux','macos'}
+          lines=[hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in sorted(out.iterdir())]
+          (out/'SHA256SUMS.txt').write_text(''.join(lines))
+      - name: Publish unsigned beta only after every native build passes
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: gh release create "$RELEASE_TAG" publish/* --verify-tag --prerelease --title "Indic LaunchKit $RELEASE_TAG" --notes-file docs/RELEASE_NOTES.md

@@ -1,0 +1,15 @@
+[package]
+name = "launchkit-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "launchkit"
+path = "src/main.rs"
+
+[dependencies]
+launchkit-core = { path = "../launchkit-core" }
+clap = { version = "4", features = ["derive"] }
+serde_json = "1"
+
